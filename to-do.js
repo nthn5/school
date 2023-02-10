@@ -39,6 +39,12 @@ const createAdd = (() => {
         count++;
         checkboxFocus.boxCheck(e);
     });
+    const all = document.querySelector('#all')
+    all.addEventListener('click', () => {
+        if(count % 2 != 0){
+            count++;
+        }
+    });
 })();
 
 const creation = (() => {
