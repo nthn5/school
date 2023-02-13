@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation</title>
+    <style>
+        form input:invalid{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <label for="email">email:</label>
+        <input type="email" id="email">
+        <label for="country">country:</label>
+        <input type="text" id="country">
+        <label for="zipcode">zipcode:</label>
+        <input type="text" pattern="[0-9]" id="zipcode">
+        <label for="password">password:</label>
+        <input type="password" id="password">
+        <label for="password-confirm">confirm password:</label>
+        <input type="password" id="password-confirm">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
