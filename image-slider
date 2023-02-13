@@ -15,15 +15,14 @@ const click = (() => {
         for (let i = 0; i < buttons.children.length; i++){
             if (e.target == buttons.children[i]){
                 index = i;
-                console.log(index);
-                changeImage();
+                changeImage('circles', index);
             }
         }
     });
     return{index}
 })();
 
-const changeImage = (change) => {
+const changeImage = (change, index) => {
     const images = document.querySelector('#images').children;
     if (change == 'next') {
             click.index++;
@@ -38,6 +37,10 @@ const changeImage = (change) => {
         else {
             click.index--;
         }
+    }
+    if (change == 'circles'){
+        console.log('u')
+        click.index = index;
     }
 
     for(let i = 0; i < images.length; i++) {
