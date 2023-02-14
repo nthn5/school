@@ -7,23 +7,49 @@
     <title>Validation</title>
     <style>
         form input:invalid{
-            border: 1px solid red;
+            background-color: salmon;
+        }
+        form input{
+            border: 1px solid black;
+        }
+        form {
+            display: flex;
+            gap: 15px;
+        }
+        form div{
+            display: flex;
+            flex-direction: column;
+        }
+        button{
+            height: 25px;
         }
     </style>
 </head>
 <body>
     <form>
-        <label for="email">email:</label>
-        <input type="email" id="email">
-        <label for="country">country:</label>
-        <input type="text" id="country">
-        <label for="zipcode">zipcode:</label>
-        <input type="text" pattern="[0-9]" id="zipcode">
-        <label for="password">password:</label>
-        <input type="password" id="password">
-        <label for="password-confirm">confirm password:</label>
-        <input type="password" id="password-confirm">
+        <div>
+            <label for="email">email:</label>
+            <input type="email" id="email" required minlength="3">
+            <span id="emailError"></span>
+        </div>
+        <div>
+            <label for="country">country:</label>
+            <input type="text" id="country">
+        </div>
+        <div>
+            <label for="zipcode">zipcode:</label>
+            <input type="text" pattern="[0-9]" id="zipcode">
+        </div>
+        <div>
+            <label for="password">password:</label>
+            <input type="password" id="password">
+        </div>
+        <div>
+            <label for="password-confirm">confirm password:</label>
+            <input type="password" id="password-confirm">
+        </div>
         <button type="submit">Submit</button>
     </form>
+    <script src="./validation.js"></script>
 </body>
 </html>
