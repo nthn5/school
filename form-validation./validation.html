@@ -23,10 +23,14 @@
         button{
             height: 25px;
         }
+        .errorActive{
+            background-color: salmon;
+        }
     </style>
 </head>
-<body>
-    <form>
+<body> 
+    <!-- could use novalidate but it messes up other things -->
+    <form> 
         <div>
             <label for="email">email:</label>
             <input type="email" id="email" required minlength="3">
@@ -34,19 +38,23 @@
         </div>
         <div>
             <label for="country">country:</label>
-            <input type="text" id="country">
+            <input type="text" id="country" required>
+            <span id="countryError"></span>
         </div>
         <div>
             <label for="zipcode">zipcode:</label>
-            <input type="text" pattern="[0-9]" id="zipcode">
+            <input type="text" id="zipcode" required minlength="5">
+            <span id="zipError"></span>
         </div>
         <div>
             <label for="password">password:</label>
-            <input type="password" id="password">
+            <input type="password" id="password" required minlength="8">
+            <span id="passError"></span>
         </div>
         <div>
             <label for="password-confirm">confirm password:</label>
-            <input type="password" id="password-confirm">
+            <input type="password" id="password-confirm" required>
+            <span id="passConfirmError"></span>
         </div>
         <button type="submit">Submit</button>
     </form>
