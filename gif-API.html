@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIPHY API</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        button{
+            margin: 25px;
+        }
+    </style>
+</head>
+<body>
+    <input placeholder="Search GIFs">
+    <button>New Image</button>
+    <img src="#">
+    <script>
+        const img = document.querySelector('img');
+        const btn = document.querySelector('button');
+        const input = document.querySelector('input');
+        const gif = (() => {
+            if(input.value != ''){
+                fetch('https://api.giphy.com/v1/gifs/translate?api_key=bbI1vH52U0VbwwzTd2DNG7f4hTqH6mLk&s=' + input.value, {mode: 'cors'})
+                    .then((response) => {
+                        return response.json();
+                    })
+                    .then((response) => {
+                        img.src = response.data.images.original.url;
+                    })
+                    .catch((e) => {
+                        img.src = '#'
+                    });
+            }
+            else{img.src = '#'}
+        });
+        gif();
+        btn.addEventListener('click', () => {
+            gif();
+        });
+    </script>
+</body>
+</html>
