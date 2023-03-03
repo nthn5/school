@@ -17,14 +17,37 @@ const tree = () => {
                 lPointer.left = current;
                 lPointer = current;
             }
+            else if (current.value < root.value && current.value > lPointer.value){
+                lPointer.right = current;
+                lPointer = current;
+            }
+
+            else if (current.value > root.value && current.value > rPointer.value){
+                rPointer.right = current;
+                rPointer = current;
+            }
+            else if (current.value > root.value && current.value < rPointer.value){
+                rPointer.left = current;
+                rPointer = current;
+            }
         }
-        
     }
     return{buildTree, get root(){return root}}
 }
 
-let array = [10, 2, 9, 1, 4, 5, 6, 7, 8];
+const prettyPrint = (node, prefix = '', isLeft = true) => {
+    if (node.right !== null) {
+        prettyPrint(node.right, `${prefix}${isLeft ? '│   ' : '    '}`, false);
+    }
+    console.log(`${prefix}${isLeft ? '└── ' : '┌── '}${node.value}`);
+    if (node.left !== null) {
+        prettyPrint(node.left, `${prefix}${isLeft ? '    ' : '│   '}`, true);
+    }
+}
+
+
+let array = [7, 9, 4, 6, 2, 3, 1, 10, 5, 8];
 let t = tree();
 t.buildTree(array);
-console.log(t.root.left);
-//left works just need to copy and make it right sided too.
+console.log(t.root);
+prettyPrint(t.root);
