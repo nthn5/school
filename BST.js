@@ -45,9 +45,16 @@ const prettyPrint = (node, prefix = '', isLeft = true) => {
     }
 }
 
-
 let array = [7, 9, 4, 6, 2, 3, 1, 10, 5, 8];
 let t = tree();
 t.buildTree(array);
 console.log(t.root);
 prettyPrint(t.root);
+
+const insert = () => {
+
+}
+
+const remove = () => {
+
+}
