@@ -51,8 +51,24 @@ t.buildTree(array);
 console.log(t.root);
 prettyPrint(t.root);
 
-const insert = () => {
-
+const insert = (value) => {
+    if (value < t.root.value){
+        let current = t.root;
+        while (current.left !== null && value < current.left.value){
+            current = current.left;
+            while (current.right !== null && value > current.right.value){
+                current = current.right;
+            }
+        }
+        if (value < current.value){
+            value = nodes(value);
+            current.left = value;
+        }
+        else if (value > current.value){
+            value = nodes(value);
+            current.right = value;
+        }
+    }
 }
 
 const remove = () => {
