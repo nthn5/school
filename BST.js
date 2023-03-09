@@ -165,7 +165,47 @@ const tree = () => {
         console.log(array);
     }
 
-    return {build, insert, remove, find, breadth, get root(){return root}}
+    const depth = () => {
+        // does not work
+        const pre = () => {
+            let array = [];
+            let stack = [root];
+            while (stack[0]){
+                let current = stack[stack.length - 1];
+                if (current.left){
+                    stack.push(current.left);
+                }
+                if (current.right && current != root){
+                    stack.push(current.right);
+                }
+                array.push(current);
+                stack.pop();
+            }
+            // queue = [root];
+            // while (queue[0]){
+            //     let current = queue[0];
+            //     if (current.right){
+            //         queue.push(current.right);
+            //     }
+            //     else if (current.left){
+            //         queue.push(current.left);
+            //     }
+            //     array.push(current);
+            //     queue.shift();
+            // }
+            console.log(array);
+        }
+        const inorder = () => {
+
+        }
+        const post = () => {
+
+        }
+
+        return{pre, inorder, post}
+    }
+
+    return {build, insert, remove, find, breadth, depth, get root(){return root}}
 }
 
 
@@ -178,3 +218,4 @@ t.remove(63);
 prettyPrint(t.root);
 t.find(100);
 t.breadth();
+t.depth().pre();
