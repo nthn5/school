@@ -1,15 +1,11 @@
 const nodes = (value) => {
-    return {value: value}
+    return {value: value, next: []}
 }
 
-const vertices = (vertices) => {
-    let list = [];
+const vertices = (value, vertices) => {
     for (let i of vertices){
-        let temp = nodes(i);
-        list.push(temp);
+        value.next.push(nodes(i));
     }
-
-    return {list: list}
 }
 
 const board = () => {
@@ -40,13 +36,13 @@ let b = board();
 const knightMoves = (start, end) => {
     let legal = b.legalMoves(start);
     let root = nodes(start);
-    root.next = nodes(legal);
-    for (let move of legal){
-        if (move[0] == end[0] && move[1] == end[1]){
-            return move;
-        }
-    }
+    vertices(root, legal)
+    // for (let move of legal){
+    //     if (move[0] == end[0] && move[1] == end[1]){
+    //         return move;
+    //     }
+    // }
+    return root;
 }
 
 console.log(knightMoves([1, 1], [2, 3]));
-console.log(nodes([1, 1]))
