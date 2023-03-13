@@ -1,11 +1,13 @@
 const nodes = (value) => {
-    return {value: value, next: []}
+    return {value: value, next: new Map()}
 }
 
-const vertices = (value, vertices) => {
-    for (let i of vertices){
-        value.next.push(nodes(i));
-    }
+const vertices = (value, move) => {
+    value.next.set(move, [])
+}
+
+const addVertex = (value, vertex) => {
+    
 }
 
 const board = () => {
@@ -34,14 +36,22 @@ const board = () => {
 let b = board();
 
 const knightMoves = (start, end) => {
+    let count = 0;
     let legal = b.legalMoves(start);
     let root = nodes(start);
-    vertices(root, legal)
-    // for (let move of legal){
-    //     if (move[0] == end[0] && move[1] == end[1]){
-    //         return move;
-    //     }
-    // }
+    let current = root;
+    console.log(root)
+    while (true){
+        for (let move in legal){
+            vertices(current, legal[move]);
+            console.log(current.next[move])
+            
+            // legal = b.legalMoves(move);
+            count++;
+            if(count==5){return root;}
+        }
+        current = current.next[move];
+    }
     return root;
 }
 
