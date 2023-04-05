@@ -72,3 +72,15 @@ const knightMoves = (start, end) => {
 //test cases
 knightMoves([1, 1], [8, 8]); //valid input
 knightMoves([-1, 11], ['11', -1]); //invalid input
+
+//this will not work at school 
+//gets user input 
+//(11 = [1, 1] / 88 = [8, 8])
+const prompt = require('prompt-sync')();
+const start = prompt('start: ').split('').map(i => {
+    return parseInt(i);
+});
+const end = prompt('end: ').split('').map(i => {
+    return parseInt(i);
+});
+knightMoves(start, end);
