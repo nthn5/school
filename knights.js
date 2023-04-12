@@ -69,14 +69,11 @@ const knightMoves = (start, end) => {
     }
 }
 
-//test cases
-knightMoves([1, 1], [8, 8]); //valid input
-knightMoves([-1, 11], ['11', -1]); //invalid input
-
-//this will not work at school 
 //gets user input 
 //(11 = [1, 1] / 88 = [8, 8])
 const prompt = require('prompt-sync')();
+console.log('input values as though the board is an 8x8 grid')
+console.log("eg. 'a1' should be inputted as '11' and h8 should be inputted as '88'")
 const start = prompt('start: ').split('').map(i => {
     return parseInt(i);
 });
