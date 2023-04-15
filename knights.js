@@ -71,8 +71,8 @@ const knightMoves = (start, end) => {
 
 //gets user input 
 const prompt = require('prompt-sync')();
-console.log('Input values as though the board is an 8x8 grid.')
-console.log("Ex. The positions 'a1' and 'h8' would be entered as '1, 1' and '8, 8' respectively.")
+console.log('Input values as though the board is an 8x8 grid.');
+console.log("Ex. The positions 'a1' and 'h8' would be entered as '1, 1' and '8, 8' respectively.");
 for (let i = 0; i < 2; i++){
     const start = prompt('start: ').split(',').map(i => {
         return parseInt(i);
