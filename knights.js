@@ -1,9 +1,9 @@
-//create nodes for linked list
+//creates nodes for linked list
 const nodes = (value) => {
     return {value: value, prev: null}
 }
 
-//create board
+//creates board
 const drawBoard = () => {
     let board = [];
     for (let i = 1; i <= 8; i++){
@@ -14,7 +14,7 @@ const drawBoard = () => {
     return board;
 }
 
-//find legal moves
+//finds legal moves
 const legalMoves = (start, board = drawBoard()) => {
     for (let i = 0; i < board.length; i++){
         legal = board.filter(move => 
@@ -69,10 +69,10 @@ const knightMoves = (start, end) => {
     }
 }
 
-//get user input 
+//gets user input 
 const prompt = require('prompt-sync')();
-console.log('input values as though the board is an 8x8 grid')
-console.log("eg. 'a1' should be inputted as '1, 1' and h8 should be inputted as '8, 8'")
+console.log('Input values as though the board is an 8x8 grid.')
+console.log("Ex. The positions 'a1' and 'h8' would be entered as '1, 1' and '8, 8' respectively.")
 for (let i = 0; i < 2; i++){
     const start = prompt('start: ').split(',').map(i => {
         return parseInt(i);
